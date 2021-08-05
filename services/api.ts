@@ -18,7 +18,6 @@ api.interceptors.response.use(response => {
 }, (error: AxiosError) => {
   if(error.response?.status === 401) {
     if (error.response.data?.code === 'token.expired') {
-      //renovar o token
 
       const { 'nextauth.refreshToken': refreshToken } = parseCookies()
       const originalConfig = error.config
